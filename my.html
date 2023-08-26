@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <h1><u>room shaffling</u></h1>
+    </center>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Shuffling</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid hsl(93, 56%, 41%);
+        }
+        td, th {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th><u>Room no.</u></th>
+                <th><u>Student 1</u></th>
+                <th><u>Student 2</u></th>
+                <th><u>Student 3</u></th>
+            </tr>
+        </thead>
+        <tbody> 
+            <!-- Rows will be added here via JS -->
+        </tbody>
+    </table>
+    <br>
+    <center>
+    <button onclick="refreshList()">shuffle</button>
+    <style>
+        button {
+            border-collapse: collapse;
+            width: 13%;
+        }
+        button{
+            border: 1px solid #362ea5;
+        }
+        button   {
+            padding: 8px;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+    </center>
+    <script>
+        const students = [
+            "sneha sawai", "nikita hingmire", "radha chudhari", "sarika kale", "bhagyashri sonwane",
+            "chanda dod", "sapana sawai", "pooja sawant", "puja wankar", "monali dhole",
+            "suchita bondre", "aditi dhahake", "mrunali gore", "vaishanvi chavan", "yamini  shende",
+            "chakuli pote", "rani kharate", "trupti nighot", "pragati dhule", "Tina tayde",
+            "monali  kapgate", "aishwarya vibhute", "aarti rathod", "kalpana dhage", "Yogita kurhade",
+            "rinkal bhahurupi", "rashami ghate ", "radhika sirsat", "anuradha aswar", "khushi  sable",
+        ];
+
+        function populateTable() {
+            let tableBody = document.querySelector("#studentTable tbody");
+            tableBody.innerHTML = "";
+
+            for (let i = 0; i < students.length; i += 3) {
+                let row = tableBody.insertRow();
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+                
+                cell1.innerHTML = (i / 3) + 1; 
+                cell2.innerHTML = students[i];
+                cell3.innerHTML = students[i + 1] || ''; 
+                cell4.innerHTML = students[i + 2] || '';
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; 
+            }
+        }
+
+        function refreshList() {
+            shuffleArray(students);
+            populateTable();
+        }
+
+        populateTable();
+    </script>
+</body>
+</html>
+    
+</body>
+</html>
